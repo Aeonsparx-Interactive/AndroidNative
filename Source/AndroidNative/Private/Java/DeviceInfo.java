@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.os.Build;
 import android.provider.Settings;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.Context;
 import java.io.File;
 import android.content.res.Resources;
@@ -168,5 +169,17 @@ public class DeviceInfo {
 	@Keep
 	public static String GetLanguageCode()	{
 		return ConfigurationCompat.getLocales(Resources.getSystem().getConfiguration()).get(0).getDefault().toLanguageTag();
+	}
+
+	@Keep
+    public static String GetIntentAction(Activity activity) {
+		Intent intent = activity.getIntent();
+		return intent.getAction();
+	}
+
+	@Keep
+	public static int GetIntentIntExtra(Activity activity, String name) {
+		Intent intent = activity.getIntent();
+		return intent.getIntExtra(name, 0);
 	}
 }

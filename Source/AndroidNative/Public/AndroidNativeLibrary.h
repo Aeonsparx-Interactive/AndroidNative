@@ -94,4 +94,10 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, Category = "Android Native Library|Basic")
 	static EAndroidTheme GetCurrentSystemTheme();
+
+	UFUNCTION(BlueprintCallable, Category = "Android Native Library|Basic")
+	static FString GetIntentAction();
+
+	UFUNCTION(BlueprintCallable, Category = "Android Native Library|Basic")
+	static int32 GetIntentIntExtra(FString name);
 };

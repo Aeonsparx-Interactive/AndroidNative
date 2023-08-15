@@ -62,6 +62,16 @@ EAndroidTheme UAndroidNativeLibrary::GetCurrentSystemTheme()
 	}
 }
 
+FString UAndroidNativeLibrary::GetIntentAction()
+{
+	return AndroidNativeUtils::CallJavaStaticMethod<FString>(DeviceInfoClassName, "GetIntentAction", FAndroidGameActivity());
+}
+
+int32 UAndroidNativeLibrary::GetIntentIntExtra(FString name)
+{
+	return AndroidNativeUtils::CallJavaStaticMethod<int32>(DeviceInfoClassName, "GetIntentIntExtra", FAndroidGameActivity(), name);
+}
+
 FString UAndroidNativeLibrary::GetExternalPath()
 {
 	return AndroidNativeUtils::CallJavaStaticMethod<FString>(DeviceInfoClassName, "GetExternalPath", FAndroidGameActivity());
